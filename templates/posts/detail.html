@@ -1,0 +1,19 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+
+    <div class="container">
+        <div class="card" style="margin-bottom: 55px">
+            <div class="card-head">
+                <img src="{{ post.image.url }}" class="img-fluid" alt="Responsive image" style="margin: auto">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">{{ post.title|title }}</h3>
+                <small><i><strong>{{ post.date|timesince }} ago</strong></i></small><br><br>
+                <p class="card-text">{{ post.content }}</p>
+            </div>
+            <a href="{% url 'update' post.id %}" class="btn btn-lg btn-primary" style="margin-top: 35px;" onclick="return confirm('Are you sure, want to Update It?')">Update This Post</a>
+            <a href="{% url 'delete' post.id %}" class="btn btn-lg btn-danger" style="margin-top: 5px;" onclick="return confirm('Are you sure, Delete It?')">Delete This Post</a>
+        </div>
+    </div>
+
+{% endblock %}
