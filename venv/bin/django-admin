@@ -1,4 +1,4 @@
-#!/home/h-king/PycharmProjects/blog/venv/bin/python
+#!/Users/bikashsubedi/myOwn/blog/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

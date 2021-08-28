@@ -1,0 +1,23 @@
+{% extends 'layouts/master.html' %}
+{% block content %}
+
+    <div class="bg-warning text-secondary px-4 py-5 text-center mb-4">
+        <div class="py-5">
+            <h1 class="display-5 fw-bold text-dark text-start">{{ item.title }}</h1>
+            <div class="col-lg-12 mx-auto">
+                <img class="img-thumbnail" src="{{ item.image.url }}" alt="">
+                <p class="fs-5 mb-4 text-start mt-4 text-dark">{{ item.content }}</p>
+            </div>
+            <div class="mb-1 text-muted text-start text-black-50">{{ item.created|date:'Y F d' }}</div>
+            <div class="mb-1 text-muted text-start text-black-50">{{ item.createdBy }}</div>
+        </div>
+        {% if user.is_authenticated %}
+            <a class="float-sm-start btn btn-danger" href="{% url 'delete.post' item.id %}">Delete This Post</a>
+            <a class="float-sm-start btn btn-success" style="margin-left: 10px" href="{% url 'update.post' item.id %}">Update
+                This Post</a>
+        {% endif %}
+
+
+    </div>
+
+{% endblock %}
